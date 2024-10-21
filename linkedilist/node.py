@@ -36,8 +36,21 @@ class SLL:
             print(current.data, end = " -> ")
             current = current.next
 
+    def insertion_end(self):
+        nodes = int(input("Enter the Node count: "))
+        for i in range(nodes):
+            newNode = Node(int(input("Enter the Node Value: ")))
+
+
+            current = self.head
+            while current.next != None:
+                current = current.next
+            current.next = newNode
+            current = newNode
+
 
 sll = SLL()
 sll.creation()
+sll.insertion_end()
 sll.traversal()
 
