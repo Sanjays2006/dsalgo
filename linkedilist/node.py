@@ -72,6 +72,14 @@ class SLL:
         current.next = newNode
 
 
+    def del_front(self):
+        if self.head is None:
+            print("There is no node to be deleted.")
+            return
+        else:
+            self.head = self.head.next
+
+
 sll = SLL()
 sll.creation()
 # sll.insert_front()
