@@ -79,6 +79,21 @@ class SLL:
         else:
             self.head = self.head.next
 
+    def del_end(self):
+        current = self.head
+        if self.head is None:
+            print("No item to be deleted.")
+            return
+        elif self.head.next is None:
+            self.head = None
+            return
+        
+        while current.next.next != None:
+            current = current.next
+
+        
+        current.next = None
+
 
 sll = SLL()
 sll.creation()
