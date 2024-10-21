@@ -29,3 +29,15 @@ class SLL:
                 current.next = newNode
 
             current = newNode 
+
+    def traversal(self):
+        current = self.head
+        while current != None:
+            print(current.data, end = " -> ")
+            current = current.next
+
+
+sll = SLL()
+sll.creation()
+sll.traversal()
+
