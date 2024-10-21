@@ -63,6 +63,9 @@ class SLL:
     def at_point(self,position):
         newNode = Node(int(input("Enter the node value: ")))
         current = self.head
+        if position == 0:
+            newNode.next = self.head
+            self.head = newNode
         for i in range(1,position - 1):
             current = current.next
         newNode.next = current.next
