@@ -94,11 +94,23 @@ class SLL:
         
         current.next = None
 
+    def del_position(self,position):
+        prev = None
+        current = self.head
+        if position == 1:
+            self.del_front()
+        for i in range(position - 1):
+            prev = current
+            current = current.next
+        prev.next = current.next
+        current.next = None
+        del current
+
 
 sll = SLL()
 sll.creation()
-# sll.insert_front()
-# sll.insertion_end()
-sll.at_point(int(input("Enter the position: ")))
+
+# sll.at_point(int(input("Enter the position: ")))
+sll.del_position(int(input('Enter delete position: ')))
 sll.traversal()
 
