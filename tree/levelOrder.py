@@ -5,7 +5,7 @@ class Node:
         self.right = None
 
 class Tree:
-    def __init__(self,data) -> None:
+    def __init__(self,data):
         self.root = Node(data)
 
     def insert(self,data):
@@ -14,6 +14,7 @@ class Tree:
             return
         
         queue = [self.root]
+
         while queue:
             currentNode = queue.pop(0)
             if currentNode.left is None:
@@ -27,24 +28,36 @@ class Tree:
                 break
             else:
                 queue.append(currentNode.right)
-
-
-    def preOrder(self,node):
-        result = []
         
-        def travese(node):
-            if node is None:
-                return 
-            result.append(node.data)
-            travese(node.left)
-            travese(node.right)
-        travese(node)
-        return result
+    def inOrder(self,node):
+        if node is None:
+            return None
+        
+        self.inOrder(node.left)
+        print(node.data,end=" -> ")
+        self.inOrder(node.right)
 
+    def bfs(self,node):
+        if node is None:
+            return None
+
+        result = []
+        queue = [node]
+        while queue:
+            currentNode = queue.pop(0)
+            result.append([currentNode.data])
+            if currentNode.left is not None:
+                queue.append(currentNode.left)
+            if currentNode.right is not None:
+                queue.append(currentNode.right)
+        return result
+        
 
 root = int(input("Enter the Root: "))
 tree = Tree(root)
-Nodes = int(input("Enter the number of Nodes: "))
-for i in range(Nodes):
+
+Nodes = int(input("Enter the Number of Nodes: "))
+for _ in range(Nodes):
     tree.insert(int(input("Enter the Data: ")))
-print(tree.preOrder(tree.root))
+# tree.inOrder(tree.root)
+print(tree.bfs(tree.root))
