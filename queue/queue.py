@@ -44,3 +44,39 @@
 # q.display()
 # print(f"Front : {q.getFront()}")
 # print(f"Rear : {q.getRear()}")
+
+
+#Queue using Dequeue method
+from collections import deque
+
+class Queue:
+    def __init__(self) -> None:
+        self.queue = []
+
+    def enqueue(self,data):
+        self.queue.append(data)
+        print(f"Enqueued Element: {data}")
+
+    def dequeue(self):
+        if self.is_empty():
+            print("Queue is empty.")
+        else:
+            deq = self.queue.popleft()
+        print(f"Dequeued Element : {deq}")
+
+    def getFront(self):
+        if self.is_empty():
+            print("Queue is empty.")
+        else:
+             print(self.queue[0])
+    
+    def getRear(self):
+        if self.is_empty():
+            print("Queue is empty.")
+        else:
+            print(self.queue[-1])
+
+    def is_empty(self):
+        return len(self.queue) == 0
+    
+    
